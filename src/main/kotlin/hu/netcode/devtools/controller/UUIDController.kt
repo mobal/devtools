@@ -1,7 +1,9 @@
 package hu.netcode.devtools.controller
 
 import hu.netcode.devtools.service.UUIDService
+import javax.servlet.http.HttpServletRequest
 import javax.validation.constraints.Min
+import org.slf4j.LoggerFactory
 import org.springframework.http.MediaType
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.GetMapping
@@ -18,8 +20,13 @@ import org.springframework.web.bind.annotation.RestController
 class UUIDController(
     private val uuidService: UUIDService
 ) {
+    private val logger = LoggerFactory.getLogger(javaClass)
+
     @GetMapping
-    fun get(@Min(value = 1) @RequestParam(defaultValue = "1", required = false) size: Int): List<String> {
+    fun get(
+        req: HttpServletRequest,
+        @Min(value = 1) @RequestParam(defaultValue = "1", required = false) size: Int
+    ): List<String> {
         return uuidService.generate(size)
     }
 }
