@@ -2,6 +2,7 @@ package hu.netcode.devtools.controller
 
 import hu.netcode.devtools.service.UUIDService
 import javax.servlet.http.HttpServletRequest
+import javax.validation.constraints.Max
 import javax.validation.constraints.Min
 import org.slf4j.LoggerFactory
 import org.springframework.http.MediaType
@@ -10,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
-import javax.validation.constraints.Max
 
 @RestController
 @RequestMapping(
