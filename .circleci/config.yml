@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: adoptopenjdk/openjdk8:alpine
+      - image: gradle:jdk8
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
