@@ -1,6 +1,10 @@
 package hu.netcode.devtools.controller
 
 import hu.netcode.devtools.service.UUIDService
+import io.swagger.v3.oas.annotations.Operation
+import io.swagger.v3.oas.annotations.media.Content
+import io.swagger.v3.oas.annotations.responses.ApiResponse
+import io.swagger.v3.oas.annotations.responses.ApiResponses
 import javax.servlet.http.HttpServletRequest
 import javax.validation.constraints.Max
 import javax.validation.constraints.Min
@@ -24,6 +28,29 @@ class UUIDController(
     private val logger = LoggerFactory.getLogger(javaClass)
 
     @GetMapping
+    @Operation(summary ="Generate a fixed number of universally unique identifier (UUID) between 1 and 9999")
+    @ApiResponses(value = [
+        ApiResponse(
+            content = [
+                Content(mediaType = "application/json")
+            ],
+            responseCode = "200"
+        ),
+        ApiResponse(
+            content = [
+                Content(mediaType = "application/json")
+            ],
+            description = "Validation failed",
+            responseCode = "400"
+        ),
+        ApiResponse(
+            content = [
+                Content(mediaType = "application/json")
+            ],
+            description = "Internal server error",
+            responseCode = "500"
+        )
+    ])
     fun get(
         req: HttpServletRequest,
         @Max(value = 9999)
