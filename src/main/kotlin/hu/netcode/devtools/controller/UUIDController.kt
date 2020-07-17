@@ -28,7 +28,7 @@ class UUIDController(
     private val logger = LoggerFactory.getLogger(javaClass)
 
     @GetMapping
-    @Operation(summary ="Generate a fixed number of universally unique identifier (UUID) between 1 and 9999")
+    @Operation(summary = "Generate a fixed number of universally unique identifier (UUID) between 1 and 9999")
     @ApiResponses(value = [
         ApiResponse(
             content = [
