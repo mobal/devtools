@@ -9,11 +9,13 @@ import javax.servlet.http.HttpServletRequest
 import javax.validation.constraints.Max
 import javax.validation.constraints.Min
 import org.slf4j.LoggerFactory
+import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
@@ -27,8 +29,6 @@ class UUIDController(
 ) {
     private val logger = LoggerFactory.getLogger(javaClass)
 
-    @GetMapping
-    @Operation(summary = "Generate a fixed number of universally unique identifier (UUID) between 1 and 9999")
     @ApiResponses(value = [
         ApiResponse(
             content = [
@@ -51,6 +51,9 @@ class UUIDController(
             responseCode = "500"
         )
     ])
+    @GetMapping
+    @Operation(summary = "Generate a fixed number of universally unique identifiers (UUID) between 1 and 9999")
+    @ResponseStatus(value = HttpStatus.OK)
     fun get(
         req: HttpServletRequest,
         @Max(value = 9999)
