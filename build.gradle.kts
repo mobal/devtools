@@ -1,6 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
+    id("com.adarshr.test-logger") version "2.1.0"
     id("idea")
     id("jacoco")
     id("org.jlleitschuh.gradle.ktlint") version "9.2.1"
@@ -13,7 +14,7 @@ plugins {
 
 group = "hu.netcode"
 version = "0.0.1-SNAPSHOT"
-java.sourceCompatibility = JavaVersion.VERSION_1_8
+java.sourceCompatibility = JavaVersion.VERSION_11
 
 configurations {
     all {
@@ -53,7 +54,7 @@ tasks.withType<Test> {
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs = listOf("-Xjsr305=strict")
-        jvmTarget = "1.8"
+        jvmTarget = "11"
     }
 }
 
@@ -71,4 +72,9 @@ sonarqube {
         property("sonar.language", "kotlin")
         property("sonar.sources", "src/main/kotlin")
     }
+}
+
+testlogger {
+    setTheme("mocha-parallel")
+    showStackTraces = true
 }
