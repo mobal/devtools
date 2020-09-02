@@ -1,6 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
+    id("com.adarshr.test-logger") version "2.1.0"
     id("idea")
     id("jacoco")
     id("org.jlleitschuh.gradle.ktlint") version "9.2.1"
@@ -71,4 +72,9 @@ sonarqube {
         property("sonar.language", "kotlin")
         property("sonar.sources", "src/main/kotlin")
     }
+}
+
+testlogger {
+    setTheme("mocha-parallel")
+    showStackTraces = true
 }
