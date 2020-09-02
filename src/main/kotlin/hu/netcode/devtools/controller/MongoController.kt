@@ -1,11 +1,10 @@
 package hu.netcode.devtools.controller
 
-import hu.netcode.devtools.service.UUIDService
+import hu.netcode.devtools.service.MongoService
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.media.Content
 import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.responses.ApiResponses
-import javax.servlet.http.HttpServletRequest
 import javax.validation.constraints.Max
 import javax.validation.constraints.Min
 import org.slf4j.LoggerFactory
@@ -21,11 +20,11 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping(
     produces = [MediaType.APPLICATION_JSON_VALUE],
-    value = ["/api/uuid"]
+    value = ["/api/mongo"]
 )
 @Validated
-class UUIDController(
-    private val uuidService: UUIDService
+class MongoController(
+    private val mongoService: MongoService
 ) {
     private val logger = LoggerFactory.getLogger(javaClass)
 
@@ -51,16 +50,15 @@ class UUIDController(
             responseCode = "500"
         )
     ])
-    @GetMapping
-    @Operation(summary = "Generate a fixed number of universally unique identifiers (UUID) between 1 and 9999")
+    @GetMapping(value = ["/objectId"])
+    @Operation(summary = "Generate a fixed number of object ids between 1 and 9999")
     @ResponseStatus(value = HttpStatus.OK)
-    fun get(
-        req: HttpServletRequest,
+    fun objectId(
         @Max(value = 9999)
         @Min(value = 1)
         @RequestParam(defaultValue = "1", required = false)
         size: Int
     ): List<String> {
-        return uuidService.generate(size)
+        return mongoService.generateObjectId(size)
     }
 }
