@@ -1,0 +1,11 @@
+logging:
+  level:
+    ROOT: WARN
+    springframework:
+      web: WARN
+server:
+  port: ${SERVER_PORT:8080}
+spring:
+  output:
+    ansi:
+      enabled: ALWAYS

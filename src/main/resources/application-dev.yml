@@ -1,0 +1,11 @@
+logging:
+  level:
+    ROOT: INFO
+    springframework:
+      web: INFO
+server:
+  port: ${SERVER_PORT:8080}
+spring:
+  output:
+    ansi:
+      enabled: ALWAYS
