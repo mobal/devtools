@@ -15,10 +15,7 @@ import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping(
-    produces = [MediaType.APPLICATION_JSON_VALUE],
-    value = ["/api/ip"]
-)
+@RequestMapping(value = ["/api/ip"])
 class IPController(
     private val ipService: IPService
 ) {
@@ -27,7 +24,7 @@ class IPController(
     @ApiResponses(value = [
         ApiResponse(
             content = [
-                Content(mediaType = "application/json")
+                Content(mediaType = "text/plain")
             ],
             responseCode = "200"
         ),
@@ -39,7 +36,7 @@ class IPController(
             responseCode = "500"
         )
     ])
-    @GetMapping
+    @GetMapping(produces = [MediaType.TEXT_PLAIN_VALUE])
     @Operation(summary = "Generate a fixed number of object ids between 1 and 9999")
     @ResponseStatus(value = HttpStatus.OK)
     fun get(req: HttpServletRequest): String {
