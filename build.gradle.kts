@@ -32,6 +32,7 @@ dependencies {
     implementation("org.hibernate.validator:hibernate-validator:6.1.2.Final")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation("org.mongodb:bson:4.1.0")
     implementation("org.springdoc:springdoc-openapi-ui:1.4.3")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-validation")
