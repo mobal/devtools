@@ -1,8 +1,8 @@
 package hu.netcode.devtools.service
 
-import java.util.UUID
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
+import java.util.UUID
 
 @Service
 class UUIDService {
