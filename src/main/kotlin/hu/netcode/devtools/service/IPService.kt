@@ -1,8 +1,8 @@
 package hu.netcode.devtools.service
 
-import javax.servlet.http.HttpServletRequest
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
+import javax.servlet.http.HttpServletRequest
 
 @Service
 class IPService {
