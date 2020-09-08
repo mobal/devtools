@@ -4,7 +4,7 @@ plugins {
     id("com.adarshr.test-logger") version "2.1.0"
     id("idea")
     id("jacoco")
-    id("org.jlleitschuh.gradle.ktlint") version "9.2.1"
+    id("org.jlleitschuh.gradle.ktlint") version "9.3.0"
     id("org.sonarqube") version "2.7.1"
     id("org.springframework.boot") version "2.3.1.RELEASE"
     id("io.spring.dependency-management") version "1.0.9.RELEASE"
