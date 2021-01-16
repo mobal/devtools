@@ -1,4 +1,4 @@
-package hu.netcode.devtools
+package hu.netcode.devtools.exception
 
 import hu.netcode.devtools.service.ExceptionService
 import org.slf4j.LoggerFactory
