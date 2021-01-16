@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestControllerAdvice
+import org.springframework.web.servlet.NoHandlerFoundException
 import javax.servlet.http.HttpServletRequest
 import javax.validation.ConstraintViolationException
 
@@ -24,6 +25,12 @@ class ExceptionHandler(
     @ResponseStatus(value = HttpStatus.BAD_REQUEST)
     fun handleConstraintViolationException(req: HttpServletRequest, ex: Exception): Map<String, Any> {
         return exceptionService.createResponseMap(ex, HttpStatus.BAD_REQUEST)
+    }
+
+    @ExceptionHandler(value = [NoHandlerFoundException::class])
+    @ResponseStatus(value = HttpStatus.NOT_FOUND)
+    fun handleNoHandlerFoundException(req: HttpServletRequest, ex: java.lang.Exception): Map<String, Any> {
+        return exceptionService.createResponseMap(ex, HttpStatus.NOT_FOUND)
     }
 
     @ExceptionHandler(value = [Exception::class])
