@@ -4,6 +4,9 @@ logging:
     springframework:
       web: INFO
 server:
+  error:
+    whitelabel:
+      enabled: false
   port: ${SERVER_PORT:8080}
 spring:
   mvc:
