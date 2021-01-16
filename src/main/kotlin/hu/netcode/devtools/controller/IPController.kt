@@ -15,7 +15,10 @@ import org.springframework.web.bind.annotation.RestController
 import javax.servlet.http.HttpServletRequest
 
 @RestController
-@RequestMapping(value = ["/api/ip"])
+@RequestMapping(
+    produces = [MediaType.APPLICATION_JSON_VALUE],
+    value = ["/api/ip"]
+)
 class IPController(
     private val ipService: IPService
 ) {
@@ -38,10 +41,10 @@ class IPController(
             )
         ]
     )
-    @GetMapping(produces = [MediaType.TEXT_PLAIN_VALUE])
+    @GetMapping
     @Operation(summary = "Generate a fixed number of object ids between 1 and 9999")
     @ResponseStatus(value = HttpStatus.OK)
-    fun get(req: HttpServletRequest): String {
-        return ipService.getIP(req)
+    fun get(req: HttpServletRequest): Map<String, String> {
+        return mapOf("ip" to ipService.getIP(req))
     }
 }
