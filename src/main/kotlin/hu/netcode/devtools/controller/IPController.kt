@@ -28,7 +28,7 @@ class IPController(
         value = [
             ApiResponse(
                 content = [
-                    Content(mediaType = "text/plain")
+                    Content(mediaType = "application/json")
                 ],
                 responseCode = "200"
             ),
