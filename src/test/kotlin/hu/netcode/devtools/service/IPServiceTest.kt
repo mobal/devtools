@@ -24,7 +24,7 @@ class IPServiceTest {
     @Autowired
     private lateinit var ipService: IPService
 
-    @DisplayName(value = "IPService: Tests for get ip function")
+    @DisplayName(value = "IPService: Tests for getIP function")
     @Nested
     @TestInstance(value = TestInstance.Lifecycle.PER_CLASS)
     inner class GetIP {
