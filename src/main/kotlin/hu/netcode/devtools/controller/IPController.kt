@@ -42,7 +42,7 @@ class IPController(
         ]
     )
     @GetMapping
-    @Operation(summary = "Generate a fixed number of object ids between 1 and 9999")
+    @Operation(summary = "Return the requesters IP address")
     @ResponseStatus(value = HttpStatus.OK)
     fun get(req: HttpServletRequest): Map<String, String> {
         return mapOf("ip" to ipService.getIP(req))
