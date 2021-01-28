@@ -26,24 +26,26 @@ class UUIDServiceTest {
         fun `successfully generate uuid`() {
             val result = uuidService.generate()
             val parts = result.first().split("-")
-            checkLength(parts)
+            assertEquals(5, parts.size)
+            assertEquals(8, parts.first().length)
+            assertEquals(4, parts[1].length)
+            assertEquals(4, parts[2].length)
+            assertEquals(4, parts[3].length)
+            assertEquals(12, parts[4].length)
         }
 
         @Test
         fun `successfully generate three uuids`() {
-            val result = uuidService.generate(3)
-            result.forEach {
-                checkLength(it.split("-"))
+            val resultList = uuidService.generate(3)
+            resultList.forEach {
+                val parts = it.split("-")
+                assertEquals(5, parts.size)
+                assertEquals(8, parts.first().length)
+                assertEquals(4, parts[1].length)
+                assertEquals(4, parts[2].length)
+                assertEquals(4, parts[3].length)
+                assertEquals(12, parts[4].length)
             }
         }
-    }
-
-    private fun checkLength(parts: List<String>) {
-        assertEquals(5, parts.size)
-        assertEquals(8, parts.first().length)
-        assertEquals(4, parts[1].length)
-        assertEquals(4, parts[2].length)
-        assertEquals(4, parts[3].length)
-        assertEquals(12, parts[4].length)
     }
 }
