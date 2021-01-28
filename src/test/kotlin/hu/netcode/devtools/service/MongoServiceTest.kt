@@ -21,7 +21,7 @@ class MongoServiceTest {
     @DisplayName(value = "MongoService: Tests for generateObjectId function")
     @Nested
     @TestInstance(value = TestInstance.Lifecycle.PER_CLASS)
-    inner class GetIP {
+    inner class GenerateObjectId {
         @Test
         fun `successfully generate objectId`() {
             val result = mongoService.generateObjectId()

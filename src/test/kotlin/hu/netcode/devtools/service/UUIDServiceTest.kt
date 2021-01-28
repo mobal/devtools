@@ -21,7 +21,7 @@ class UUIDServiceTest {
     @DisplayName(value = "UUIDService: Tests for generate function")
     @Nested
     @TestInstance(value = TestInstance.Lifecycle.PER_CLASS)
-    inner class GetIP {
+    inner class Generate {
         @Test
         fun `successfully generate uuid`() {
             val result = uuidService.generate()
