@@ -1,5 +1,6 @@
 package hu.netcode.devtools.controller
 
+import hu.netcode.devtools.service.ExceptionService
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
@@ -15,10 +16,13 @@ import org.springframework.test.web.servlet.get
 @TestInstance(value = TestInstance.Lifecycle.PER_CLASS)
 @WebMvcTest(
     value = [
+        ExceptionService::class,
         WelcomeController::class
     ]
 )
 class WelcomeControllerTest {
+    @Autowired
+    private lateinit var exceptionService: ExceptionService
     @Autowired
     private lateinit var mockMvc: MockMvc
 
