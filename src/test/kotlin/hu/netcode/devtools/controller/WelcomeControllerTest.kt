@@ -29,7 +29,7 @@ class WelcomeControllerTest {
     @DisplayName(value = "WelcomeController: Tests for function welcome")
     @Nested
     @TestInstance(value = TestInstance.Lifecycle.PER_CLASS)
-    inner class Welcome() {
+    inner class Welcome {
         @Test
         fun `successfully get welcome page`() {
             mockMvc.get("/") {
