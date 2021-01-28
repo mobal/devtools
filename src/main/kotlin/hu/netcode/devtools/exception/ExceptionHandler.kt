@@ -29,7 +29,7 @@ class ExceptionHandler(
 
     @ExceptionHandler(value = [NoHandlerFoundException::class])
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
-    fun handleNoHandlerFoundException(req: HttpServletRequest, ex: java.lang.Exception): Map<String, Any> {
+    fun handleNoHandlerFoundException(req: HttpServletRequest, ex: Exception): Map<String, Any> {
         return exceptionService.createResponseMap(ex, HttpStatus.NOT_FOUND)
     }
 
