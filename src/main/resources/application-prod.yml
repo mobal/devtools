@@ -14,3 +14,5 @@ spring:
   output:
     ansi:
       enabled: DETECT
+springdoc:
+  override-with-generic-response: false
