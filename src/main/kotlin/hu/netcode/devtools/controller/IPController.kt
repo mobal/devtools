@@ -31,13 +31,6 @@ class IPController(
                     Content(mediaType = "application/json")
                 ],
                 responseCode = "200"
-            ),
-            ApiResponse(
-                content = [
-                    Content(mediaType = "application/json")
-                ],
-                description = "Internal server error",
-                responseCode = "500"
             )
         ]
     )

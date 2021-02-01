@@ -43,13 +43,6 @@ class UUIDController(
                 ],
                 description = "Validation failed",
                 responseCode = "400"
-            ),
-            ApiResponse(
-                content = [
-                    Content(mediaType = "application/json")
-                ],
-                description = "Internal server error",
-                responseCode = "500"
             )
         ]
     )
